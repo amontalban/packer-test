@@ -43,7 +43,7 @@ while [ ${i} -lt ${MAX_RUNS} ]; do
 
   NUMBER_OF_MESSAGES=$(${GREP} 'SALTSTACK HIGHSTATE' test_${EPOCH}.log | ${WC} -l)
   if [ ${NUMBER_OF_MESSAGES} -ne 12 ]; then
-    error "Packer failed in run ${i}! Number of messages ${NUMBER_OF_MESSAGES} is different than expected (12)."
+    error "Packer failed in run ${i}! Number of messages ${NUMBER_OF_MESSAGES} is different than expected (24)."
     error "Please check test_${EPOCH}.log for further details."
     exit 1
   else
