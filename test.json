@@ -43,48 +43,48 @@
     {
       "type": "shell",
       "scripts": [
-        "init.sh"
+        "files/init.sh"
       ]
     },
     {
       "type": "file",
-      "source": "php.txt",
+      "source": "files/php.txt",
       "destination": "/tmp/php.txt"
     },
     {
       "type": "shell",
       "scripts": [
-        "saltstack_1.sh"
+        "files/saltstack_1.sh"
       ]
     },
     {
       "type": "shell",
       "scripts": [
-        "saltstack_2.sh"
+        "files/saltstack_2.sh"
       ]
     },
     {
       "type": "shell",
       "scripts": [
-        "saltstack_3.sh"
+        "files/saltstack_3.sh"
       ]
     },
     {
       "type": "shell",
       "scripts": [
-        "saltstack_4.sh"
+        "files/saltstack_4.sh"
       ]
     },
     {
       "type": "shell",
       "scripts": [
-        "saltstack_5.sh"
+        "files/saltstack_5.sh"
       ]
     },
     {
       "type": "shell",
       "scripts": [
-        "saltstack_6.sh"
+        "files/saltstack_6.sh"
       ]
     }
   ]

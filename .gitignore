@@ -3,3 +3,4 @@
 packer_cache/
 output-virtualbox-ovf/
 *.log
+*.box

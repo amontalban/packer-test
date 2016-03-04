@@ -2,12 +2,8 @@
 
 `vagrant box add debian/jessie64`
 
-2) Copy the .ovf and .vmdk files from debian/jessie64 :
+2) Run test script with the number of runs:
 
-`cp ~/.vagrant.d/boxes/debian-VAGRANTSLASH-jessie64/8.3.0/virtualbox/box.ovf .`
+`./test.sh 10`
 
-`cp ~/.vagrant.d/boxes/debian-VAGRANTSLASH-jessie64/8.3.0/virtualbox/debian-jessie-disk1.vmdk .`
-
-3) Build packer image:
-
-`packer build test.json`
+This will run 10 tests and create logs like test_epoch.log
