@@ -1,0 +1,91 @@
+{
+  "variables": {
+    "vendor": "Company, Inc.",
+    "vendor_url": "https://company.com",
+    "vm_description": "Company test image",
+    "vm_prefix_name": "packer-test"
+  },
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "box.ovf",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "echo 'vagrant' | sudo -S -E -H sh -c \"sync && poweroff\"",
+      "headless": true,
+      "vm_name": "{{user `vm_prefix_name`}}",
+      "export_opts": ["--manifest", "--vsys", "0", "--vendor", "{{user `vendor`}}", "--vendorurl", "{{user `vendor_url`}}", "--version", "1", "--description", "{{user `vm_description`}}"],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "4096"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "4"
+        ]
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": "9",
+      "output": "{{user `vm_prefix_name`}}.box"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "init.sh"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "php.txt",
+      "destination": "/tmp/php.txt"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "saltstack_1.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "saltstack_2.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "saltstack_3.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "saltstack_4.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "saltstack_5.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "saltstack_6.sh"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+*.ovf
+*.vmdk
+packer_cache/
+output-virtualbox-ovf/
+*.log
